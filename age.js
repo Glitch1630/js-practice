@@ -1,4 +1,4 @@
-let age = 25 ;
+const age=Number(process.argv[2]);
 if (age >=20) {
     console.log("Adult");
 } 
