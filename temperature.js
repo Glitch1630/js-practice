@@ -1,10 +1,8 @@
-const  readline=require("readline");
-const rl=readline.createInterface({
-    input:process.stdin,
-    output:process.stdout
-});
-rl.question("Enter the celsius: ",function(celsius){
-   const fahrenheit=(celsius *9/5)+32;
-    console.log(fahrenheit + "°F") 
-    rl.close();
-});
+function celsiusToFahrenheit(celsius){
+    return (celsius * 9/5)+32;
+}
+const celsius=Number(process.argv[2].split("=")[1]);
+const fahrenheit=celsiusToFahrenheit(celsius);
+console.log(fahrenheit + "°F");
+
+

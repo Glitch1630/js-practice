@@ -1,12 +1,8 @@
-const readline=require("readline");
-const rl=readline.createInterface({
-    input:process.stdin,
-    output:process.stdout
-});
-rl.question("Enter your age :",function(age) {
+function getBirthYear(age){
     const currentYear = new Date().getFullYear();
-    const birthYear = currentYear - Number(age);
-    console.log("Birth year is :", birthYear);
-    rl.close();
-});
-
+    return (currentYear - age);
+}
+const age=Number(process.argv[2].split("=")[1]);
+//store input as an array [1] tells the argument to take the second value in the array and convert it to a number first one is the"age"
+const birthYear=getBirthYear(age);
+console.log("Birth year is :", birthYear);
