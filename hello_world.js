@@ -1,5 +1,5 @@
 
-let name="Alice" ;
+const name = process.argv[2];
 if (name ==="Alice"){
     console.log("Hello Alice");
 }
