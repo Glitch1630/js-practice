@@ -15,9 +15,24 @@ if(command ==="add"){
 } else if (command === "remove") {
     removeTodo(todos, task);
 }
+else{
+    console.log("Unknown command ");
+}
 fs.writeFileSync("todos.json", JSON.stringify(todos));
 
 function addTodo(task){
+    if(task=== undefined){
+        console.log("No task added")
+        return;
+    }
+    for(i=0;i<todos.length;i++){
+       const current_todo=todos[i]  ;
+       if( current_todo.task===task){
+        console.log("Task already added");
+        return;
+
+       }
+    }
     const todo = {
         task: task,
         completed: false,
@@ -38,17 +53,26 @@ function listTodo(todos) {
 }
 function markTodo(todos, serialNumber) {
     const index = Number(serialNumber) - 1;
-
-    if (todos[index]) {
+    if (index>=todos.length || index<0){
+        console.log("Todo not found")
+    }
+    else{
         todos[index].completed = true;
+        console.log(todos[index].task,"is completed");
     }
 }
+
 function removeTodo(todos, serialNumber) {
     const index = Number(serialNumber) - 1;
+    if (index>=todos.length || index<0){
+        console.log("Todo not found")
+    }
+    else {
 
     const todo = todos[index];
 
     todos.splice(index, 1);
-
+    
     console.log(todo.task, "removed from your list.");
+}
 }
